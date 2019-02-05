@@ -1,0 +1,7 @@
+<h1>Cohorts#show</h1>
+<p>Find me in app/views/cohorts/show.html.erb</p>
+  <%= render partial: 'cohort', locals: { cohort: @cohort } %>
+ 
+
+  <%= link_to "Edit Cohort", edit_cohort_path(@cohort) %>
+  <%= link_to "Destroy Cohort", course_path(@cohort), method: :delete %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Panel</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+</head>
+
+  <body>
+  <header>
+  <div class="navbar navbar-dark bg-dark">
+    <%= link_to "Students", students_url, class: "nav-link"%>
+    <%= link_to "Instructors", instructors_url%>
+    <%= link_to "Courses", courses_url%>
+    <%= link_to "Cohorts", cohorts_url%>
+    <%= link_to "log-in"%>
+  <div class="navbar">
+  </header>
+  
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+  </body>
+</html>
+ 
