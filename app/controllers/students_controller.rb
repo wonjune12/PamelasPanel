@@ -23,18 +23,21 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
-    @student.update(student_params)
+    @student = Student.find_by(id: params[:id])
+    @student.update_attributes(student_params)
+    @student.save
     redirect_to students_path
   end
 
-  def destroy
-
+  def delete
+    @student = Student.find(params[:id])
+    @student.destroy
+    redirect_to students_path
   end
 
   private
   def student_params
-    params.require(:student).permit(:firstname,:lastname,:age,:degree,:email,:cohort,:cohort)
+    params.require(:student).permit(:firstname,:lastname,:age,:degree,:email,:cohort_id)
   end
 
 

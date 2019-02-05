@@ -1,5 +1,10 @@
 
   <%= render partial: 'instructor', locals: { instructor: @instructor } %>
 
+
+ <%= @instructor.age%> <br/>
+ <%= @instructor.salary%>
+ <%= @instructor.cohort_id%>
+<br/>
   <%= link_to "Edit instructor", edit_instructor_path(@instructor) %>
   <%= link_to "Destroy instructor", instructor_path(@instructor), method: :delete %>

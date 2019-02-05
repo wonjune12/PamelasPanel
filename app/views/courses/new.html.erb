@@ -2,9 +2,6 @@
   Course: <%= form.text_field(:title)%><br />
   Info : <%= form.text_field(:courseinfo)%> <br/>
   Hours : <%= form.number_field(:hoursinclass)%> <br/>
-<!--  Course: <%= form.collection_select(:course, Course.order(:title), :id, :title) %>-->
-<!--  Cohort: <%= form.collection_select(:cohort, Cohort.order(:title), :id, :title) %>--> 
-
   <%= form.submit %>
 <% end %>
 

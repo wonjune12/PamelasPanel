@@ -1,11 +1,11 @@
+<% provide(:title, 'Edit student') %>
 <%= form_with(model: @students) do |form| %>
   firstname: <%= form.text_field(:firstname)%><br />
   lastname: <%= form.text_field(:lastname)%><br />
   age : <%= form.text_field(:age)%>
   degree : <%= form.select(:degree, ["HS", "B.D", "M.D", "Ph.D"]) %>
   e-mail: <%= form.email_field(:email) %><br />
-  Course: <%= form.collection_select(:course, Course.order(:title), :id, :title) %>
-  Cohort: <%= form.collection_select(:cohort, Cohort.order(:title), :id, :title) %> 
+  Cohort: <%= form.collection_select(:cohort_id, Cohort.order(:title), :id, :title) %> 
 
   <%= form.submit %>
 <% end %>

@@ -1,2 +1,7 @@
   <%= render partial: 'student', locals: { student: @student } %>
 
+  
+  <%= @student.age%>  <br/>
+  <%= @student.email%> <br/>
+  <%= link_to "Edit Student", edit_student_path(@student) %>
+  <%= link_to "Destroy Student", student_path(@student), method: :delete %>

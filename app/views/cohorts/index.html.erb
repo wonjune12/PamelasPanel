@@ -1,4 +1,9 @@
+<h1>Cohorts#index</h1>
+<p>Find me in app/views/Cohorts/index.html.erb</p>
+
+
 <% @cohorts.each do |cohort| %>
   <%= render partial: 'cohort', locals: { cohort: cohort } %>
 <% end %>
 
+  <%= link_to "New Cohorts", new_cohort_url%> 

@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 2019_02_05_163817) do
     t.string "end_date"
     t.bigint "instructor_id"
     t.bigint "course_id"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_cohorts_on_course_id"
     t.index ["instructor_id"], name: "index_cohorts_on_instructor_id"
+    t.index ["student_id"], name: "index_cohorts_on_student_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -42,8 +44,10 @@ ActiveRecord::Schema.define(version: 2019_02_05_163817) do
     t.string "degree"
     t.integer "salary"
     t.string "email"
+    t.bigint "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_instructors_on_cohort_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -52,8 +56,10 @@ ActiveRecord::Schema.define(version: 2019_02_05_163817) do
     t.integer "age"
     t.string "degree"
     t.string "email"
+    t.bigint "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_students_on_cohort_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,6 +5,7 @@
   degree : <%= form.select(:degree, ["HS", "B.D", "M.D", "Ph.D"]) %>
   e-mail: <%= form.email_field(:email) %><br />
   salary: <%= form.number_field(:salary)%>
+  Cohort: <%= form.collection_select(:cohort, Cohort.order(:title), :id, :title) %> 
   <%= form.submit %>
 <% end %>
 

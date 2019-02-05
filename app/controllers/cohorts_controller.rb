@@ -14,11 +14,11 @@ class CohortsController < ApplicationController
   end
 
   def show
-    @cohort = Course.find(params[:id])
+    @cohort = Cohort.find(params[:id])
   end
   
   def edit
-    @student = Student.find(params[:id])
+    @cohort = Cohort.find(params[:id])
   end
 
   def update
