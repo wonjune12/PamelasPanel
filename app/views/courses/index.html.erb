@@ -4,5 +4,5 @@
 <% @courses.each do |course| %>
   <%= render partial: 'course', locals: { course: course } %>
 <% end %>
-
+<br/>
   <%= link_to "New Course", new_course_url%> 

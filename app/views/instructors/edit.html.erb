@@ -1,7 +1,7 @@
 <%= form_with model: @instructor, class: 'card' do |form| %>
   firstname: <%= form.text_field(:firstname)%><br />
   lastname: <%= form.text_field(:lastname)%><br />
-  age : <%= form.number_field(:age)%>
+  age : <%= form.select(:age, 1..150)%>
   degree : <%= form.select(:degree, ["HS", "B.D", "M.D", "Ph.D"]) %>
   e-mail: <%= form.email_field(:email) %><br />
   salary: <%= form.number_field(:salary)%>

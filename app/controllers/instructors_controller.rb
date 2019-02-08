@@ -2,6 +2,11 @@ class InstructorsController < ApplicationController
   
   def index 
     @instructors = Instructor.all
+    respond_to do |format|
+      format.html
+      format.json {render json:@instructors}
+    end
+
   end
 
   def new 
@@ -11,6 +16,9 @@ class InstructorsController < ApplicationController
   def create    
     @instructor = Instructor.create(instructor_params)
     session[:instructor_id] = @instructor.id
+
+
+    
     redirect_to instructors_path
   end
   
@@ -25,6 +33,7 @@ class InstructorsController < ApplicationController
   def update
     @instructor = Instructor.find_by(id: params[:id])
     @instructor.update(instructor_params)
+    @instructor.save
     redirect_to instructors_path
   end
 

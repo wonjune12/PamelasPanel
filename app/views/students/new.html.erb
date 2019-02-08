@@ -1,10 +1,10 @@
 <%= form_with(model: @students) do |form| %>
-  firstname: <%= form.text_field(:firstname)%><br />
-  lastname: <%= form.text_field(:lastname)%><br />
-  age : <%= form.text_field(:age)%>
+  <%= form.label 'Name '%> 
+  <%= form.text_field(:firstname)%> <%= form.text_field(:lastname)%><br />
+  age : <%= form.select(:age, 1..150)%>
   degree : <%= form.select(:degree, ["HS", "B.D", "M.D", "Ph.D"]) %>
   e-mail: <%= form.email_field(:email) %><br />
-  Cohort: <%= form.collection_select(:cohort, Cohort.order(:title), :id, :title) %> 
+  Cohort: <%= form.collection_select(:cohort_id, Cohort.order(:title), :id, :title) %> 
 
   <%= form.submit %>
 <% end %>

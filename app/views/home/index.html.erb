@@ -1,0 +1,7 @@
+      <% if user_signed_in? %>
+        redirect_to courses_path
+      <%else%>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        
+        <% end %>

@@ -2,6 +2,9 @@
   Cohort: <%= form.text_field(:title)%><br />
   Starting: <%= form.text_field(:start_date, data:{provide:'datepicker'})%>
   Ending: <%= form.text_field(:end_date, data:{provide:'datepicker'})%>
-  Course: <%= form.collection_select(:course, Course.order(:title), :id, :title)%>
-<%= form.submit %>
+  <%= form.hidden_field(:course_id) %> 
+  <%= hidden_field_tag 'selected', 'none'  %>
+  Instructor: <%= form.collection_select(:instructor_id, Instructor.order(:firstname), :id, :firstname) %> 
+
+ <%= form.submit %>
 <% end %>

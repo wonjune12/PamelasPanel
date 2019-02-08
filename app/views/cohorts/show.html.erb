@@ -3,6 +3,7 @@
   <%= render partial: 'cohort', locals: { cohort: @cohort } %>
   <%= @cohort.start_date%> <br/>
   <%= @cohort.end_date%> <br/>
+  <%= link_to "#{@cohort.instructors}", instructor_path(@cohortinstructor.instructor_id)%><br/>
 
   <%= link_to "Edit Cohort", edit_cohort_path(@cohort) %>
   <%= link_to "Destroy Cohort", course_path(@cohort), method: :delete %>

@@ -24,6 +24,7 @@ class CoursesController < ApplicationController
   def update
     @course = Course.find(params[:id])
     @course.update(course_params)
+    @course.save
     redirect_to courses_path
   end
 
@@ -36,7 +37,7 @@ class CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:title,:courseInfo,:hoursinclass)
+    params.require(:course).permit(:title,:courseinfo,:hoursinclass)
   end
 
 end

@@ -3,8 +3,9 @@
 
 
  <%= @instructor.age%> <br/>
- <%= @instructor.salary%>
- <%= @instructor.cohort_id%>
+ <%= @instructor.salary%><br/>
+   <%= link_to "#{@instructor.cohorts}", cohort_path(@instructor.cohorts.ids)%><br/>
+
 <br/>
   <%= link_to "Edit instructor", edit_instructor_path(@instructor) %>
   <%= link_to "Destroy instructor", instructor_path(@instructor), method: :delete %>
