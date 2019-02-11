@@ -1,10 +1,10 @@
 <div class="uk-card uk-card-body uk-width-1-2@m uk-align-center">
-<%= form_with(model: @student, class:"uk-form-width-large uk-align-center") do |form| %>
+<%= form_with(model: @student, class:"uk-form-width-large uk-align-center uk-form-stacked") do |form| %>
   <legend class="uk-legend uk-align-center">New Student</legend>
   <%= form.text_field(:firstname, class: "uk-input uk-margin", placeholder: "First name")%> 
   <%= form.text_field(:lastname, class:"uk-input uk-margin", placeholder: "Last name")%><br />
   Age : <%= form.select(:age, 1..150, class:"uk-select", placeholder: "Age")%><br/>
-  Degree : <%= form.select(:degree, ["Highschool", "Bachelors", "Masters", "Ph.D"], class:"uk-select uk-margin", placeholder: "Highest Degree") %>
+  Degree : <%= form.select(:degree, ["Highschool", "Bachelors", "Masters", "Ph.D"], class: "uk-select uk-margin uk-form-control", placeholder: "Highest Degree", id: "form-stacked-select") %>
   <%= form.email_field(:email, class: "uk-input uk-margin", placeholder: "E-mail", required: true) %><br />
   Cohort: <%= form.collection_select(:cohort_id, Cohort.order(:title), :id, :title, class: "uk-select") %><br/>
   <%= form.submit class: "uk-button uk-button-primary uk-margin"%>
