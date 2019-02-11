@@ -5,7 +5,7 @@
   <%= render partial: 'cohort', locals: { cohort: @cohort } %>
   Starting Date: <%= @cohort.start_date%>  <br/>
   Ending Date:   <%= @cohort.end_date%> <br/> 
-  Course Title:  <%= @cohort.course.title%>  <br/>
+  Course Title:  <%= link_to "#{@cohort.course.title}", course_path(@cohort.course_id)%>  <br/>
   Instructor: <%= link_to "#{@cohortinstructor.instructor.firstname} #{@cohortinstructor.instructor.lastname}", instructor_path(@cohortinstructor.instructor_id)%><br/>
   Students :  
     <% @cohort.students.each do |student| %>

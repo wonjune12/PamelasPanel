@@ -1,5 +1,6 @@
 class CohortsController < ApplicationController
 
+  before_action :authenticate_user!
   def index 
     @cohorts = Cohort.all
   end
@@ -10,7 +11,6 @@ class CohortsController < ApplicationController
   end
 
   def create
-    
     @cohort = Cohort.create(cohort_params)
     @cohortinstructor = Cohortinstructor.create(
       cohort_id: @cohort.id,

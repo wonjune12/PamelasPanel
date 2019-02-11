@@ -1,8 +1,8 @@
 class CreateCohortstudents < ActiveRecord::Migration[5.2]
   def change
     create_table :cohortstudents do |t|
-      t.references :student
-      t.references :cohort
+      t.references :student, foreign_key: true
+      t.references :cohort, foreign_key: true
       t.timestamps
     end
   end
