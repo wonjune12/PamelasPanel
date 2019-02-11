@@ -1,11 +1,18 @@
-
+<div class="uk-margin-medium-left">
+<h1>Instructor</h1>
+</div>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
   <%= render partial: 'instructor', locals: { instructor: @instructor } %>
-
-
- <%= @instructor.age%> <br/>
- <%= @instructor.salary%><br/>
-   <%= link_to "#{@instructor.cohorts}", cohort_path(@instructor.cohorts.ids)%><br/>
-
-<br/>
-  <%= link_to "Edit instructor", edit_instructor_path(@instructor) %>
-  <%= link_to "Destroy instructor", instructor_path(@instructor), method: :delete %>
+  Age: <%= @instructor.age%> <br/>
+  Salary: $<%= @instructor.salary%><br/>
+  Degree: <%= @instructor.degree%> <br/>
+  Cohorts: 
+      <% @instructor.cohorts.each do |cohort| %>
+      <ul class="uk-list">
+        <li> <%= link_to "#{cohort.title}", cohort_path(cohort)%> 
+      </ul>
+    <% end %>
+  <br/><br/>
+  <button class="uk-button"><%= link_to "Edit instructor", edit_instructor_path(@instructor) %> </button>
+  <button class="uk-button uk-button-danger"><%= link_to "Destroy instructor", instructor_path(@instructor), method: :delete %></button>
+</div>

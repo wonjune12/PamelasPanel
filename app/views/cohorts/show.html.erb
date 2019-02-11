@@ -1,9 +1,19 @@
-<h1>Cohorts#show</h1>
-<p>Find me in app/views/cohorts/show.html.erb</p>
+<div class="uk-margin-medium-left">
+  <h1>Cohort</h1>
+</div>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
   <%= render partial: 'cohort', locals: { cohort: @cohort } %>
-  <%= @cohort.start_date%> <br/>
-  <%= @cohort.end_date%> <br/>
-  <%= link_to "#{@cohort.instructors}", instructor_path(@cohortinstructor.instructor_id)%><br/>
-
-  <%= link_to "Edit Cohort", edit_cohort_path(@cohort) %>
-  <%= link_to "Destroy Cohort", course_path(@cohort), method: :delete %>
+  Starting Date: <%= @cohort.start_date%>  <br/>
+  Ending Date:   <%= @cohort.end_date%> <br/> 
+  Course Title:  <%= @cohort.course.title%>  <br/>
+  Instructor: <%= link_to "#{@cohortinstructor.instructor.firstname} #{@cohortinstructor.instructor.lastname}", instructor_path(@cohortinstructor.instructor_id)%><br/>
+  Students :  
+    <% @cohort.students.each do |student| %>
+      <ul class="uk-list">
+        <li> <%= link_to "#{student.firstname} #{student.lastname}", student_path(student)%>
+      </ul>
+    <% end %>
+    <br/><br/>
+    <button class="uk-button"><%= link_to "Edit Cohort", edit_cohort_path(@cohort) %></button>
+    <button class="uk-button uk-button-danger"><%= link_to "Destroy Cohort", course_path(@cohort), method: :delete %></button>
+</div>

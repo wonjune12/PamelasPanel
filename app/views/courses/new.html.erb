@@ -1,7 +1,9 @@
-<%= form_with(model: @course) do |form| %>
-  Course: <%= form.text_field(:title)%><br />
-  Info : <%= form.text_field(:courseinfo)%> <br/>
-  Hours : <%= form.number_field(:hoursinclass)%> <br/>
-  <%= form.submit %>
+<div class="uk-card uk-card-body uk-width-1-2@m uk-align-center">
+<%= form_with(model: @course, class: "uk-form-width-large uk-align-center") do |form| %>
+  <legend class="uk-legend uk-align-center">New Course</legend>
+  <%= form.text_field(:title, class: "uk-input uk-margin", placeholder: "Course Title",required: true)%><br />
+  <%= form.text_field(:courseinfo, class: "uk-textarea uk-margin", placeholder: "Course Info")%> <br/>
+  <%= form.number_field(:hoursinclass, class: "uk-textarea uk-margin", placeholder: "Hours", required: true)%> <br/>
+  <%= form.submit class: "uk-button uk-button-primary uk-margin"%>
 <% end %>
-
+</div>

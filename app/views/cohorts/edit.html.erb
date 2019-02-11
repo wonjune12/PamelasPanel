@@ -1,10 +1,11 @@
-<%= form_with(model: @cohort) do |form| %>
-  Cohort: <%= form.text_field(:title)%><br />
-  Starting: <%= form.text_field(:start_date, data:{provide:'datepicker'})%>
-  Ending: <%= form.text_field(:end_date, data:{provide:'datepicker'})%>
-  <%= form.hidden_field(:course_id) %> 
-  <%= hidden_field_tag 'selected', 'none'  %>
-  Instructor: <%= form.collection_select(:instructor_id, Instructor.order(:firstname), :id, :firstname) %> 
-
- <%= form.submit %>
+<div class="uk-card uk-card-body uk-width-1-2@m uk-align-center">
+<%= form_with(model: @cohort, class: "uk-form-width-large uk-align-center") do |form| %>
+  <legend class="uk-legend uk-align-center">New Cohort</legend>
+  <%= form.text_field(:title, class: "uk-input uk-margin", placeholder: "Cohort Title", required: true)%><br/>
+  <%= form.text_field(:start_date, data:{provide:'datepicker'}, class:"uk-input uk-margin", placeholder: "Starting date MM/DD/YYYY", required:true )%>
+  <%= form.text_field(:end_date, data:{provide:'datepicker'}, class:"uk-input uk-margin", placeholder: "Ending date MM/DD/YYYY", required:true )%>
+  <%= form.label :course_id %> : <%= form.collection_select(:course_id, Course.order(:title), :id, :title, class: "uk-select", required: true)%> <br/>
+  <%= form.label :instructor_id %> : <%= form.collection_select(:instructor_id, Instructor.order(:firstname), :id, :firstname, class: "uk-select", required: true) %> <br/>
+<%= form.submit class: "uk-button uk-button-primary uk-margin"%>
 <% end %>
+</div>

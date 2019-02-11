@@ -1,8 +1,12 @@
-<h1>Instructors#index</h1>
-<p>Find me in app/views/instructors/index.html.erb</p>
+<div class="uk-margin-medium-left uk-margin-medium-right">
+<h1>Instructors </h1>
+<ul class="uk-list uk-list-striped">
 
 <% @instructors.each do |instructor| %>
-  <%= render partial: 'instructor', locals: { instructor: instructor } %>
+  <li><%= render partial: 'instructor', locals: { instructor: instructor }%> </li>
 <% end %>
-
+</ul>
+<br/>
   <%= link_to "New Instructor", new_instructor_url%> 
+
+</div>

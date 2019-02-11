@@ -5,14 +5,14 @@ class StudentsController < ApplicationController
   end
 
   def new 
-    @students = Student.new
+    @student = Student.new
     @cohortstudent = Cohortstudent.new
   end
   
   def create    
-    @students = Student.create(student_params)
+    @student = Student.create(student_params)
     @cohortstudent = Cohortstudent.create(
-      student_id: @students.id,
+      student_id: @student.id,
       cohort_id: params[:student][:cohort_id]
     )
     redirect_to students_path
@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
   
   def show
     @student = Student.find_by(id: params[:id])
+    @cohortstudent = Cohortstudent.find_by(id: @student.id)
   end
 
   def edit
@@ -28,12 +29,18 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find_by(id: params[:id])
+    @cohortstudent = Cohortstudent.find_by(student_id: @student.id)
+    @cohortstudent.update(cohort_id: params[:student][:cohort_id])
     @student.update(student_params)
     redirect_to students_path
   end
 
+  #deletes student and it's relationship with cohort
+  #however; allows the path to this student's page from cohort's side even though it'l cause an error
   def destroy
     @student = Student.find(params[:id])
+    @cohortstudent = Cohortstudent.find_by(student_id: @student.id)
+    @cohortstudent.destroy
     @student.destroy
     redirect_to students_path
   end

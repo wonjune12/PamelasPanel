@@ -1,9 +1,11 @@
-<h1>Cohorts#index</h1>
-<p>Find me in app/views/Cohorts/index.html.erb</p>
-
-
+<div class="uk-margin-medium-left uk-margin-medium-right">
+<h1>Cohorts</h1>
+<ul class="uk-list uk-list-striped">
 <% @cohorts.each do |cohort| %>
-  <%= render partial: 'cohort', locals: { cohort: cohort } %>
+  <li><%= render partial: 'cohort', locals: { cohort: cohort } %></li>
 <% end %>
 <br/>
   <%= link_to "New Cohorts", new_cohort_url%> 
+</ul>
+
+</div>

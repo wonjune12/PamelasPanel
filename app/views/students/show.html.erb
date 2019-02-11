@@ -1,7 +1,12 @@
+<div class="uk-margin-medium-left">
+<h1>Student</h1>
+</div>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
   <%= render partial: 'student', locals: { student: @student } %>
-
-  
-  <%= @student.age%>  <br/>
-  <%= @student.email%> <br/>
-  <%= link_to "Edit Student", edit_student_path(@student) %>
-  <%= link_to "Destroy Student", student_path(@student), method: :delete %>
+  Age: <%= @student.age%>  <br/>
+  E-mail: <%= @student.email%> <br/>
+  Cohort: <%= link_to "#{@cohortstudent.cohort.title}", cohort_url(@cohortstudent.cohort.id)%> 
+  <br/><br/>
+  <button class="uk-button"><%= link_to "Edit Student", edit_student_path(@student) %> </button>
+  <button class="uk-button uk-button-danger"><%= link_to "Destroy Student", student_path(@student), method: :delete %> </button>
+</div>

@@ -1,7 +1,8 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "uk-form-width-large uk-align-center") do |f| %>
   <%= devise_error_messages! %>
+  <legend class="uk-legend uk-align-center">Sign up</legend>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -20,10 +21,8 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "uk-button uk-button-primary uk-margin"%>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>

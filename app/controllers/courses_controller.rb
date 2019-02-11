@@ -28,6 +28,9 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+
+  #delete course but keeps the cohorts. 
+  #Cannot provide this course anymore
   def destroy 
     @course = Course.find(params[:id])
     @course.destroy

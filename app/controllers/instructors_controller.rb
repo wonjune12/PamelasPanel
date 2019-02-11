@@ -16,14 +16,12 @@ class InstructorsController < ApplicationController
   def create    
     @instructor = Instructor.create(instructor_params)
     session[:instructor_id] = @instructor.id
-
-
-    
     redirect_to instructors_path
   end
   
   def show
     @instructor = Instructor.find_by(id: params[:id])
+    @cohortinstructor = Cohortinstructor.find_by(id: @instructor.id)
   end
 
   def edit
@@ -33,12 +31,22 @@ class InstructorsController < ApplicationController
   def update
     @instructor = Instructor.find_by(id: params[:id])
     @instructor.update(instructor_params)
-    @instructor.save
+    if (@instructor.email?)
+      flash[:error] = "This email is already registered"
+    else
+      @instructor.save
+    end
     redirect_to instructors_path
   end
 
+  #deletes instructor and it's relationship with cohort
+  #however; allows the path to this page from the cohort's side even though it'll cause an error
   def destroy
-    
+    @instructor = Instructor.find_by(id: params[:id])
+    @cohortinstructor = Cohortinstructor.find_by(id: @instructor.id)
+    @cohortinstructor.destroy
+    @instructor.destroy
+    redirect_to instructors_path
   end
 
   def instructor_params
